@@ -1,0 +1,14 @@
+<form class="form-container" [formGroup]="activateForm" (ngSubmit)="onSubmit()">
+  <h2>E-mail with activation code has been send.</h2>
+  <label class="m-b-xs">
+    <input type="text" formControlName="username" placeholder="e-mail" />
+  </label>
+  <label>
+    <input
+      type="text"
+      formControlName="activationCode"
+      placeholder="activationCode"
+    />
+  </label>
+  <button type="submit" class="btn max-width">Submit</button>
+</form>

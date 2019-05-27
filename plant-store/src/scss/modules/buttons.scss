@@ -1,0 +1,31 @@
+@import "../exports.scss";
+
+.btn {
+  position: relative;
+  padding: 0.7em 1em;
+  margin: 1.5em;
+  border-radius: 0.2em;
+  border: none;
+  background-image: $green-gradient;
+  color: white;
+  font-weight: 300;
+  font-size: 0.8em;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.btn::before {
+  z-index: -1;
+  box-shadow: $green-shadow;
+  display: inline-block;
+  position: absolute;
+  content: "";
+  left: 10px;
+  bottom: 0;
+  right: 10px;
+  top: 0;
+}
+
+.max-width {
+  width: 100%;
+}

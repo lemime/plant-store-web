@@ -1,0 +1,15 @@
+<form class="form-container" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h2 style="align-self: flex-start">Register</h2>
+  <label>
+    <input type="text" formControlName="username" placeholder="e-mail" />
+  </label>
+  <label>
+    <input type="password" formControlName="password" placeholder="password" />
+  </label>
+  <label>
+    <input type="password" formControlName="confirmPassword" placeholder="confirm password" />
+  </label>
+  <button type="submit" class="btn max-width" [disabled]="!registerForm.valid">
+    Submit
+  </button>
+</form>

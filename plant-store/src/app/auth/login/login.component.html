@@ -1,0 +1,12 @@
+<form class="form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h2 style="align-self: flex-start">Log in</h2>
+  <label class="m-b-xs">
+    <input type="text" formControlName="username" placeholder="e-mail" />
+  </label>
+  <label>
+    <input type="text" formControlName="password" placeholder="password" />
+  </label>
+  <button type="submit" class="btn max-width" [disabled]="!loginForm.valid">
+    Submit
+  </button>
+</form>

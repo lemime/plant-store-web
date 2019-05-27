@@ -1,0 +1,16 @@
+<div>
+  <nav>
+    <div *ngIf="appService.isLoggedIn(); else loggedOut" (click)="logOut()" class="nav-element btn">
+      Log out
+    </div>
+
+    <ng-template #loggedOut>
+      <div [routerLink]="['/login']" class="nav-element btn">
+        Log in
+      </div>
+      <div [routerLink]="['/register']" class="nav-element btn">
+        Regiser
+      </div>
+    </ng-template>
+  </nav>
+</div>

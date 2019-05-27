@@ -1,0 +1,5 @@
+@import "../../../scss/exports.scss";
+
+:host {
+  @include centered-form-component;
+}
