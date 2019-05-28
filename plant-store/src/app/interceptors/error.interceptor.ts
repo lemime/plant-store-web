@@ -9,31 +9,22 @@ import {
 import { Inject, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
+  constructor(public toastr: ToastrManager) {}
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    request = request.clone({
-      url: 'http://localhost:3000/' + request.url
-    });
     return next.handle(request).pipe(
-      map((event: HttpEvent<any>) => {
-        if (event instanceof HttpResponse) {
-          console.log('event--->>>', event);
-        }
-        return event;
-      }),
       catchError((error: HttpErrorResponse) => {
-        let data = {};
-        data = {
-          reason: error && error.error.reason ? error.error.reason : '',
+        const data = {
+          reason: error && error.error.message ? error.error.message : '',
           status: error.status
         };
-        console.log('asdasdsad,', error);
-        // this.errorDialogService.openDialog(data);
+        this.toastr.errorToastr(data.reason, 'Oops!');
         return throwError(error);
       })
     );

@@ -4,12 +4,16 @@ import { StoreContainerComponent } from './store/store-container/store-container
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ActivateComponent } from './auth/activate/activate.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { ResetInitComponent } from './auth/reset-init/reset-init.component';
 
 const routes: Routes = [
   { path: '', component: StoreContainerComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'activate', component: ActivateComponent }
+  { path: 'activate', component: ActivateComponent },
+  { path: 'reset2', component: ResetPasswordComponent },
+  { path: 'reset1', component: ResetInitComponent }
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@
   font-size: 0.8em;
   z-index: 0;
   cursor: pointer;
+  transition: opacity 0.5s;
 }
 
 .btn::before {
@@ -28,4 +29,8 @@
 
 .max-width {
   width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.3;
 }

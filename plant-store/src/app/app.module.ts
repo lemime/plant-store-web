@@ -12,6 +12,10 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ActivateComponent } from './auth/activate/activate.component';
 import { NavigationBarComponent } from './ui/navigation-bar/navigation-bar.component';
+import { ToastrModule } from 'ng6-toastr-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { ResetInitComponent } from './auth/reset-init/reset-init.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { NavigationBarComponent } from './ui/navigation-bar/navigation-bar.compo
     LoginComponent,
     RegisterComponent,
     ActivateComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    ResetPasswordComponent,
+    ResetInitComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AppService, ...interceptors],
   bootstrap: [AppComponent]

@@ -6,7 +6,8 @@ import {
   Credentials,
   RegisterCredentials,
   ActivationCredentials,
-  UserAuth
+  UserAuth,
+  ResetCredentials
 } from './models/credentrials.model';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
@@ -57,6 +58,30 @@ export class AppService {
           error => console.log(error)
         )
       );
+  }
+
+  initReset(email: string) {
+    const url = 'initreset';
+    return this.http
+      .post<void>(url, email)
+      .pipe(
+        tap(
+          () => this.router.navigate(['/reset2']),
+          error => console.log(error)
+        )
+      );
+  }
+
+  reset(credentials: ResetCredentials): Observable<UserAuth> {
+    const url = 'reset';
+    return this.http.post<UserAuth>(url, credentials).pipe(
+      tap(
+        data => {
+          this.router.navigate(['/']), this.saveToken(data.token);
+        },
+        error => console.log(error)
+      )
+    );
   }
 
   getPlantsList(): Observable<Plant[]> {

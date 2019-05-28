@@ -4,8 +4,9 @@
     <input type="text" formControlName="username" placeholder="e-mail" />
   </label>
   <label>
-    <input type="text" formControlName="password" placeholder="password" />
+    <input type="password" formControlName="password" placeholder="password" />
   </label>
+  <p (click)="initReset()" class="green">Forgot password?</p>
   <button type="submit" class="btn max-width" [disabled]="!loginForm.valid">
     Submit
   </button>

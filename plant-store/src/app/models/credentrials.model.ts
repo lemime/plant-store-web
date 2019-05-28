@@ -12,6 +12,12 @@ export class ActivationCredentials {
   activationCode: string;
 }
 
+export class ResetCredentials {
+  login: string;
+  code: string;
+  newPassword: string;
+}
+
 export class UserAuth {
   token: string;
 }
