@@ -1,0 +1,9 @@
+<form class="form-container" [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+  <h2 style="align-self: flex-start">E-mail address</h2>
+  <label class="m-b-xs">
+    <input type="text" formControlName="username" placeholder="e-mail" />
+  </label>
+  <button type="submit" class="btn max-width" [disabled]="!resetForm.valid">
+    Submit
+  </button>
+</form>

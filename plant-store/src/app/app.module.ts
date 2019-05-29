@@ -16,6 +16,7 @@ import { ToastrModule } from 'ng6-toastr-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { ResetInitComponent } from './auth/reset-init/reset-init.component';
+import { PlantItemComponent } from './store/plant-item/plant-item.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ResetInitComponent } from './auth/reset-init/reset-init.component';
     ActivateComponent,
     NavigationBarComponent,
     ResetPasswordComponent,
-    ResetInitComponent
+    ResetInitComponent,
+    PlantItemComponent
   ],
   imports: [
     BrowserModule,

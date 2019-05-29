@@ -1,0 +1,9 @@
+@import "../../../scss/exports.scss";
+
+:host {
+  display: flex;
+  flex-direction: row;
+  @include p(2);
+  @include m(7);
+  background-color: white;
+}
