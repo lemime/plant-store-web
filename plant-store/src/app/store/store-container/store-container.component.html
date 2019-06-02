@@ -5,6 +5,20 @@
         Search
     </button>
 </form>
-<div *ngFor="let plant of plants | async">
+<!-- <div *ngFor="let plant of plants | async">
+    <app-plant-item [plant]="plant"></app-plant-item>
+</div> -->
+<h1>Foliages plants</h1>
+<div *ngFor="let plant of foliages | async">
+    <app-plant-item [plant]="plant"></app-plant-item>
+</div>
+
+<h1>Succulents</h1>
+<div *ngFor="let plant of succulents | async">
+    <app-plant-item [plant]="plant"></app-plant-item>
+</div>
+
+<h1>Flowerings</h1>
+<div *ngFor="let plant of flowerings | async">
     <app-plant-item [plant]="plant"></app-plant-item>
 </div>

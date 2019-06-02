@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Plant } from 'src/app/models/plant.model';
 import { filter, map } from 'rxjs/operators';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Categories } from 'src/app/models/categories';
 
 @Component({
   selector: 'app-store-container',
@@ -18,6 +19,10 @@ export class StoreContainerComponent implements OnInit {
   isEmpty = true;
 
   plants: Observable<Plant[]>;
+
+  foliages: Observable<Plant[]>;
+  flowerings: Observable<Plant[]>;
+  succulents: Observable<Plant[]>;
 
   constructor(private service: AppService) {}
 
@@ -37,15 +42,58 @@ export class StoreContainerComponent implements OnInit {
         })
       )
     );
+
+    this.flowerings = this.getPlantsOfCategory(
+      this.plants,
+      Categories.flowering
+    );
+
+    this.foliages = this.getPlantsOfCategory(this.plants, Categories.foliage);
+    this.succulents = this.getPlantsOfCategory(
+      this.plants,
+      Categories.succulents
+    );
   }
 
   clear(): void {
     this.isEmpty = true;
     this.plants = this.service.getPlantsList();
+    this.flowerings = this.getPlantsOfCategory(
+      this.plants,
+      Categories.flowering
+    );
+
+    this.foliages = this.getPlantsOfCategory(this.plants, Categories.foliage);
+
+    this.succulents = this.getPlantsOfCategory(
+      this.plants,
+      Categories.succulents
+    );
     this.searchTab.controls.text.setValue('');
+  }
+
+  getPlantsOfCategory(
+    plants: Observable<Plant[]>,
+    category: Categories
+  ): Observable<Plant[]> {
+    return plants.pipe(
+      map(plantList => plantList.filter(plant => plant.category === category))
+    );
   }
 
   ngOnInit() {
     this.plants = this.service.getPlantsList();
+
+    this.flowerings = this.getPlantsOfCategory(
+      this.plants,
+      Categories.flowering
+    );
+
+    this.foliages = this.getPlantsOfCategory(this.plants, Categories.foliage);
+
+    this.succulents = this.getPlantsOfCategory(
+      this.plants,
+      Categories.succulents
+    );
   }
 }
