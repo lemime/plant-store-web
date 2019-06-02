@@ -16,7 +16,6 @@ export class ActivateComponent {
   });
 
   onSubmit() {
-    console.log(this.activateForm.value);
     this.service.activate(this.activateForm.value).subscribe();
   }
 }

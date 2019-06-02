@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { ResetInitComponent } from './auth/reset-init/reset-init.component';
 import { PlantItemComponent } from './store/plant-item/plant-item.component';
+import { AddImageComponent } from './admin/add-image/add-image.component';
+import { FileUploadService } from './admin/file-upload.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { PlantItemComponent } from './store/plant-item/plant-item.component';
     NavigationBarComponent,
     ResetPasswordComponent,
     ResetInitComponent,
-    PlantItemComponent
+    PlantItemComponent,
+    AddImageComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +39,10 @@ import { PlantItemComponent } from './store/plant-item/plant-item.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     ToastrModule.forRoot()
   ],
-  providers: [AppService, ...interceptors],
+  providers: [AppService, FileUploadService, ...interceptors],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

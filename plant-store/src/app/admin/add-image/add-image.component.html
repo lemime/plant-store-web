@@ -1,0 +1,31 @@
+<div>
+  <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="file" formControlName="image" (change)="onFileSelect($event)" />
+    </div>
+    <div>
+      <input type="text" formControlName="name" />
+    </div>
+    <div>
+      <input type="number" formControlName="price" />
+    </div>
+    <div>
+      <input type="text" formControlName="description" />
+    </div>
+    <div>
+      <button type="submit">Upload</button>
+    </div>
+  </form>
+</div>
+
+<div class="margin-20" *ngIf="currentStatus === STATUS_SUCCESS">
+  <h2>Uploaded {{ uploadedFiles.length }} file(s) successfully.</h2>
+  <p>
+    <a href="javascript:void(0)" (click)="reset()">Upload again</a>
+  </p>
+  <ul class="list-unstyled">
+    <li *ngFor="let item of uploadedFiles">
+      <img [src]="'http://localhost:3000/' + item.url" class="img-responsive img-thumbnail" [alt]="item.originalName">
+    </li>
+  </ul>
+</div>

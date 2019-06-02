@@ -3,7 +3,16 @@
 :host {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   @include p(2);
   @include m(7);
   background-color: white;
+}
+
+.thumbnail {
+  height: 150px;
+
+  img {
+    height: 100%;
+  }
 }

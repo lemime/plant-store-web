@@ -1,6 +1,7 @@
-<img>
-<div>
-    <img [src]="plant.image">
-    <p>{{ plant.name }}</p>
-    <p>{{plant.price}}</p>
+<div class="thumbnail m-3"><img [src]="plant.image"></div>
+<div class="my-3 mx-7" style="flex-grow:1; max-width: 600px;">
+    <h2 class="mb-1">{{ plant.name }}</h2>
+    <p class="mt-1">{{plant.price}} PLN</p>
+    <p class="font-size-xs">{{plant.description}}</p>
 </div>
+<button class="btn m-3" style="flex-shrink: 0;align-self: flex-end;margin-left: auto !important">Add to cart</button>

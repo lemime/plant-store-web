@@ -6,6 +6,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ActivateComponent } from './auth/activate/activate.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { ResetInitComponent } from './auth/reset-init/reset-init.component';
+import { AddImageComponent } from './admin/add-image/add-image.component';
 
 const routes: Routes = [
   { path: '', component: StoreContainerComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'activate', component: ActivateComponent },
   { path: 'reset2', component: ResetPasswordComponent },
-  { path: 'reset1', component: ResetInitComponent }
+  { path: 'reset1', component: ResetInitComponent },
+  { path: 'image', component: AddImageComponent }
 ];
 
 @NgModule({
