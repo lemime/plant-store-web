@@ -1,3 +1,10 @@
+<form class="search" [formGroup]="searchTab" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="text">
+    <button *ngIf="!isEmpty" class="btn-red" (click)="clear()"><i class="fa fa-times"></i></button>
+    <button type="submit" class="btn">
+        Search
+    </button>
+</form>
 <div *ngFor="let plant of plants | async">
     <app-plant-item [plant]="plant"></app-plant-item>
 </div>

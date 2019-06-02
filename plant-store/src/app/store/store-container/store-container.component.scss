@@ -1,0 +1,26 @@
+@import "../../../scss/exports.scss";
+
+:host {
+  display: block;
+  @include m(7);
+}
+
+form {
+  border: solid 1px $light-gray;
+  border-radius: 4px;
+  background-color: white;
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  input {
+    flex-grow: 1;
+    border: none;
+  }
+
+  button {
+    @include m(1);
+  }
+}

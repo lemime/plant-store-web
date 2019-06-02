@@ -5,7 +5,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   @include p(2);
-  @include m(7);
+  @include my(7);
   background-color: white;
 }
 
