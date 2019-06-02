@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./scss/layout.scss";
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -21,10 +22,10 @@ body {
   font-size: 0.7em;
 }
 
-.font-size-xs {
-  font-size: 0.7em;
+.font-size-s {
+  font-size: 0.8em;
 }
 
-.font-size-xs {
-  font-size: 0.7em;
+.font-size-m {
+  font-size: 0.9em;
 }

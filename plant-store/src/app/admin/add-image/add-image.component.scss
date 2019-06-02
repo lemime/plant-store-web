@@ -1,0 +1,29 @@
+@import "../../../scss/exports.scss";
+
+:host /deep/ {
+  @include p(7);
+  display: block;
+
+  .custom {
+    width: 100%;
+  }
+}
+
+form {
+  @include mt(7);
+  margin: auto;
+}
+
+.form-input {
+  @include my(2);
+  width: 100%;
+
+  p {
+    @include my(0);
+  }
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

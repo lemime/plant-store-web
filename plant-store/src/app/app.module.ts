@@ -20,6 +20,7 @@ import { PlantItemComponent } from './store/plant-item/plant-item.component';
 import { AddImageComponent } from './admin/add-image/add-image.component';
 import { FileUploadService } from './admin/file-upload.service';
 import { CartContainerComponent } from './cart/cart-container/cart-container.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CartContainerComponent } from './cart/cart-container/cart-container.com
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgSelectModule,
     ToastrModule.forRoot()
   ],
   providers: [AppService, FileUploadService, ...interceptors],
