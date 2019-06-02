@@ -7,11 +7,13 @@ import { ActivateComponent } from './auth/activate/activate.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { ResetInitComponent } from './auth/reset-init/reset-init.component';
 import { AddImageComponent } from './admin/add-image/add-image.component';
+import { CartContainerComponent } from './cart/cart-container/cart-container.component';
 
 const routes: Routes = [
   { path: '', component: StoreContainerComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'cart', component: CartContainerComponent },
   { path: 'activate', component: ActivateComponent },
   { path: 'reset2', component: ResetPasswordComponent },
   { path: 'reset1', component: ResetInitComponent },

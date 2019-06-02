@@ -19,6 +19,8 @@ import { ResetInitComponent } from './auth/reset-init/reset-init.component';
 import { PlantItemComponent } from './store/plant-item/plant-item.component';
 import { AddImageComponent } from './admin/add-image/add-image.component';
 import { FileUploadService } from './admin/file-upload.service';
+import { CartContainerComponent } from './cart/cart-container/cart-container.component';
+import { SearchTabComponent } from './store/search-tab/search-tab.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { FileUploadService } from './admin/file-upload.service';
     ResetPasswordComponent,
     ResetInitComponent,
     PlantItemComponent,
-    AddImageComponent
+    AddImageComponent,
+    CartContainerComponent,
+    SearchTabComponent
   ],
   imports: [
     BrowserModule,

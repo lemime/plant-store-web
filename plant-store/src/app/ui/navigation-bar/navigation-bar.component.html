@@ -1,8 +1,17 @@
 <div>
   <nav>
-    <div *ngIf="appService.isLoggedIn(); else loggedOut" (click)="logOut()" class="nav-element btn">
-      Log out
+    <div class="nav" *ngIf="appService.isLoggedIn(); else loggedOut">
+      <div [routerLink]="['/']" class="nav-element btn">
+        Shop
+      </div>
+      <div [routerLink]="['/cart']" class="nav-element btn">
+        Your Cart
+      </div>
+      <div (click)="logOut()" class="nav-element btn">
+        Log out
+      </div>
     </div>
+
 
     <ng-template #loggedOut>
       <div [routerLink]="['/login']" class="nav-element btn">

@@ -20,4 +20,5 @@ export class ResetCredentials {
 
 export class UserAuth {
   token: string;
+  role: string;
 }

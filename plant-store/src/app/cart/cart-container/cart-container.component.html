@@ -1,0 +1,20 @@
+<h1 *ngIf="!isEmpty()">Twój koszyk</h1>
+<div *ngFor="let product of order">
+  <div class="item">
+
+    <p>{{product.plant.name}}</p>
+    <div class="count">
+      <p>{{product.count}}</p>
+      <button class="btn btn-circle m-3" (click)="addToCart(product.plant)">+</button>
+      <button class="btn-red btn-circle m-3" (click)="delete(product)">
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+  </div>
+
+</div>
+<button *ngIf="!isEmpty()" class="btn m-3" (click)="saveOrder()">Order</button>
+<h1>Zamówienia</h1>
+<div class="item list" *ngFor="let order of orders | async">
+  <li *ngFor="let product of order.products"> <a>{{product.count}} x {{product.plant.name}}</a></li>
+</div>

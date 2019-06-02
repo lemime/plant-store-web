@@ -4,4 +4,5 @@
     <p class="mt-1">{{plant.price}} PLN</p>
     <p class="font-size-xs">{{plant.description}}</p>
 </div>
-<button class="btn m-3" style="flex-shrink: 0;align-self: flex-end;margin-left: auto !important">Add to cart</button>
+<button class="btn m-3" style="flex-shrink: 0;align-self: flex-end;margin-left: auto !important"
+    (click)="addToCart(plant)">Add to cart</button>

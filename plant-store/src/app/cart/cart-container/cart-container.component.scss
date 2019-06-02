@@ -1,0 +1,30 @@
+@import "../../../scss/exports.scss";
+
+:host {
+  @include p(7);
+  display: block;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @include p(3);
+  @include my(7);
+  background-color: white;
+}
+
+.btn-circle {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.count {
+  display: flex;
+}
+
+.list {
+  flex-direction: column;
+}
