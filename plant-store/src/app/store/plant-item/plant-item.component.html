@@ -1,8 +1,14 @@
 <div class="thumbnail m-3"><img [src]="plant.image"></div>
-<div class="my-3 mx-7" style="flex-grow:1; max-width: 600px;">
+<div class="my-3 mx-7" style="flex-grow:1; max-width: 500px;">
     <h2 class="mb-1">{{ plant.name }}</h2>
-    <p class="mt-1">{{plant.price}} PLN</p>
+    <p class="mt-1">{{plant.price | currency:''}} PLN</p>
     <p class="font-size-xs">{{plant.description}}</p>
 </div>
-<button class="btn m-3" style="flex-shrink: 0;align-self: flex-end;margin-left: auto !important"
+<button *ngIf="role==='user'" class="btn m-3" style="flex-shrink: 0;align-self: flex-end;margin-left: auto !important"
     (click)="addToCart(plant)">Add to cart</button>
+<div style="display:flex; flex-shrink: 0;align-self: flex-end;margin-left: auto !important">
+    <button *ngIf="role==='admin'" class="btn btn-circle m-3" (click)="edit(plant)"><i
+            class="fa fa-pencil"></i></button>
+    <button *ngIf="role==='admin'" class="btn-red btn-circle m-3" (click)="delete(plant)"><i
+            class="fa fa-trash"></i></button>
+</div>

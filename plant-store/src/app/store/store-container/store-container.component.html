@@ -10,15 +10,19 @@
 </div> -->
 <h1>Foliages plants</h1>
 <div *ngFor="let plant of foliages | async">
-    <app-plant-item [plant]="plant"></app-plant-item>
+    <app-plant-item (changePlant)="onChangePlant()" [role]="userRole" [plant]="plant"></app-plant-item>
 </div>
 
 <h1>Succulents</h1>
 <div *ngFor="let plant of succulents | async">
-    <app-plant-item [plant]="plant"></app-plant-item>
+    <app-plant-item (changePlant)="onChangePlant()" [role]="userRole" [plant]="plant"></app-plant-item>
 </div>
 
 <h1>Flowerings</h1>
 <div *ngFor="let plant of flowerings | async">
-    <app-plant-item [plant]="plant"></app-plant-item>
+    <app-plant-item (changePlant)="onChangePlant()" [role]="userRole" [plant]="plant"></app-plant-item>
 </div>
+
+<button type="submit" class="btn" *ngIf="userRole==='admin'" [routerLink]="['/plant/add']">
+    Add new plant
+</button>

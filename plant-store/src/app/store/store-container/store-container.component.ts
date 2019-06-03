@@ -17,6 +17,7 @@ export class StoreContainerComponent implements OnInit {
   });
 
   isEmpty = true;
+  userRole: string = this.service.getUserRole();
 
   plants: Observable<Plant[]>;
 
@@ -70,6 +71,10 @@ export class StoreContainerComponent implements OnInit {
       Categories.succulents
     );
     this.searchTab.controls.text.setValue('');
+  }
+
+  onChangePlant() {
+    this.ngOnInit();
   }
 
   getPlantsOfCategory(

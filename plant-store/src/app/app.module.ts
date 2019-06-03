@@ -21,6 +21,9 @@ import { AddImageComponent } from './admin/add-image/add-image.component';
 import { FileUploadService } from './admin/file-upload.service';
 import { CartContainerComponent } from './cart/cart-container/cart-container.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { OrderListComponent } from './admin/order-list/order-list.component';
+import { RoleGuardService } from './role-guard.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ResetInitComponent,
     PlantItemComponent,
     AddImageComponent,
-    CartContainerComponent
+    CartContainerComponent,
+    UserListComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgSelectModule,
     ToastrModule.forRoot()
   ],
-  providers: [AppService, FileUploadService, ...interceptors],
+  providers: [AppService, FileUploadService, RoleGuardService, ...interceptors],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

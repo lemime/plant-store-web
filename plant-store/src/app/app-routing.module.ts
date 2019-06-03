@@ -8,16 +8,23 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { ResetInitComponent } from './auth/reset-init/reset-init.component';
 import { AddImageComponent } from './admin/add-image/add-image.component';
 import { CartContainerComponent } from './cart/cart-container/cart-container.component';
+import { RoleGuardService as RoleGuard } from './role-guard.service';
+import { UserListComponent } from './admin/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', component: StoreContainerComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartContainerComponent },
+  {
+    path: 'users',
+    component: UserListComponent,
+    canActivate: [RoleGuard]
+  },
   { path: 'activate', component: ActivateComponent },
   { path: 'reset2', component: ResetPasswordComponent },
   { path: 'reset1', component: ResetInitComponent },
-  { path: 'image', component: AddImageComponent }
+  { path: 'plant/add', component: AddImageComponent }
 ];
 
 @NgModule({

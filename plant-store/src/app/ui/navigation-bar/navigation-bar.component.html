@@ -4,14 +4,16 @@
       <div [routerLink]="['/']" class="nav-element btn">
         Shop
       </div>
-      <div [routerLink]="['/cart']" class="nav-element btn">
+      <div *ngIf="appService.getUserRole()==='user'" [routerLink]="['/cart']" class="nav-element btn">
         Your Cart
+      </div>
+      <div *ngIf="appService.getUserRole()==='admin'" [routerLink]="['/users']" class="nav-element btn">
+        Users and orders
       </div>
       <div (click)="logOut()" class="nav-element btn">
         Log out
       </div>
     </div>
-
 
     <ng-template #loggedOut>
       <div [routerLink]="['/login']" class="nav-element btn">

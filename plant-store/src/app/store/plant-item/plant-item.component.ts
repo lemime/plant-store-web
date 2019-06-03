@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Plant } from 'src/app/models/plant.model';
 import { AppService } from 'src/app/app.service';
 
@@ -8,10 +8,21 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./plant-item.component.scss']
 })
 export class PlantItemComponent implements OnInit {
+  constructor(private appService: AppService) {}
   @Input()
   plant: Plant;
 
-  constructor(private appService: AppService) {}
+  @Input()
+  role: string;
+
+  @Output()
+  changePlant: EventEmitter<void> = new EventEmitter();
+
+  delete(plant: Plant): void {
+    this.appService.deletePlant(plant._id).subscribe(() => {
+      this.changePlant.emit();
+    });
+  }
 
   ngOnInit() {}
 

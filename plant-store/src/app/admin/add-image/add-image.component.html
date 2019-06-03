@@ -22,7 +22,7 @@
     <input type="text" formControlName="description" />
   </div>
   <div class="form-input">
-    <button type="submit" class="btn">Upload</button>
+    <button type="submit" class="btn mx-0 max-width" [disabled]="!uploadForm.valid"> Upload</button>
   </div>
 </form>
 

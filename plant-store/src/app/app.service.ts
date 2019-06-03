@@ -34,11 +34,10 @@ export class AppService {
   }
 
   deleteFromCart(product: Product): void {
-    console.log(product);
     const index = this.order
       .map(prod => prod.plant.name)
       .indexOf(product.plant.name);
-    console.log(index);
+
     if (index !== -1) {
       this.order.splice(index, 1);
     }
@@ -58,6 +57,10 @@ export class AppService {
 
   public isLoggedIn(): boolean {
     return localStorage.getItem(AppService.TOKEN_STORAGE_KEY) ? true : false;
+  }
+
+  public getUserRole(): string {
+    return localStorage.getItem(AppService.ROLE_STORAGE_KEY);
   }
 
   private saveToken(token: string): void {
@@ -146,5 +149,10 @@ export class AppService {
         error => console.log(error)
       )
     );
+  }
+
+  deletePlant(id: string): Observable<void> {
+    const url = 'plants/delete';
+    return this.http.post<void>(url, { _id: id });
   }
 }
