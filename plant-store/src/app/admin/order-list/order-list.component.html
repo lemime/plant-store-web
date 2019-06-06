@@ -1,3 +1,15 @@
-<p>
-  order-list works!
-</p>
+<div *ngIf="orders.length!=0">
+  <hr>
+  <p class="font-size-s">Orders:</p>
+</div>
+<div class="font-size-s" *ngFor="let order of orders">
+  <hr>
+  Order {{order._id}}:
+  <button style="transform: scale(0.8)" class="btn-red btn-circle my-0" (click)="onDelete(order)">
+    <i class="fa fa-trash"></i>
+  </button>
+  <ul *ngFor="let col of order.products">
+    <li>{{col.count}} x {{col.plant.name}}</li>
+  </ul>
+
+</div>

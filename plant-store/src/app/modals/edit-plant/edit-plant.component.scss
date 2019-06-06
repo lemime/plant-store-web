@@ -1,0 +1,36 @@
+@import "../../../scss/exports.scss";
+
+:host /deep/ {
+  @include p(7);
+  display: block;
+
+  .custom {
+    width: 100%;
+  }
+}
+
+.form-input {
+  @include my(2);
+  width: 100%;
+
+  p {
+    @include my(0);
+  }
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.thumbnail {
+  width: 100px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.btn-change {
+  width: 70px;
+}

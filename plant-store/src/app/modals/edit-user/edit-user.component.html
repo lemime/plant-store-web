@@ -1,0 +1,13 @@
+<ngx-smart-modal #user [identifier]="'user'" (onOpen)="open()">
+  <form class="form-container" [formGroup]="editForm">
+    <div class="form-input">
+      <p class="font-size-s">Username</p>
+      <input type="text" formControlName="username" />
+    </div>
+    <div class="form-input">
+      <p class="font-size-s">Role</p>
+      <input type="text" formControlName="role" />
+    </div>
+    <button class="btn" (click)="onChange()">Change</button>
+  </form>
+</ngx-smart-modal>

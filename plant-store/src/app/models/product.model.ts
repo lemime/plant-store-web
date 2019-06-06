@@ -1,6 +1,7 @@
 import { Plant } from './plant.model';
 
 export class Product {
+  _id: string;
   count: number;
   plant: Plant;
 

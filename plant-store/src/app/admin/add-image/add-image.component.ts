@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploadService } from '../file-upload.service';
 import { take, delay } from 'rxjs/operators';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Categories } from 'src/app/models/categories';
 
 @Component({
@@ -23,11 +23,11 @@ export class AddImageComponent implements OnInit {
   selectedCategory = this.items[0];
 
   uploadForm = new FormGroup({
-    image: new FormControl(''),
-    name: new FormControl(''),
+    image: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
     price: new FormControl(0),
     category: new FormControl(this.items[0]),
-    description: new FormControl([''])
+    description: new FormControl([''], Validators.required)
   });
 
   readonly STATUS_INITIAL = 0;
@@ -36,7 +36,6 @@ export class AddImageComponent implements OnInit {
   readonly STATUS_FAILED = 3;
 
   ngOnInit() {
-    console.log(this.items);
   }
 
   onFileSelect(event) {
@@ -50,6 +49,7 @@ export class AddImageComponent implements OnInit {
     formData.append('file', this.file);
     formData.append('name', this.uploadForm.get('name').value);
     formData.append('price', this.uploadForm.get('price').value);
+    formData.append('category', this.uploadForm.get('category').value);
     formData.append('description', this.uploadForm.get('description').value);
     this.save(formData);
   }

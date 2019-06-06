@@ -24,6 +24,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 import { RoleGuardService } from './role-guard.service';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { EditUserComponent } from './modals/edit-user/edit-user.component';
+import { EditPlantComponent } from './modals/edit-plant/edit-plant.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { RoleGuardService } from './role-guard.service';
     AddImageComponent,
     CartContainerComponent,
     UserListComponent,
-    OrderListComponent
+    OrderListComponent,
+    EditUserComponent,
+    EditPlantComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,8 @@ import { RoleGuardService } from './role-guard.service';
     ReactiveFormsModule,
     FormsModule,
     NgSelectModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxSmartModalModule.forRoot()
   ],
   providers: [AppService, FileUploadService, RoleGuardService, ...interceptors],
   bootstrap: [AppComponent]

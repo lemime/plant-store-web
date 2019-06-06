@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, of } from 'rxjs';
 import { Plant } from './models/plant.model';
 import {
   Credentials,
@@ -10,9 +10,10 @@ import {
   ResetCredentials
 } from './models/credentrials.model';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
+import { tap, map, switchMap, mergeMap } from 'rxjs/operators';
 import { Product } from './models/product.model';
 import { Order } from './models/order.model';
+import { User } from './models/user.model';
 
 @Injectable()
 export class AppService {
@@ -41,6 +42,10 @@ export class AppService {
     if (index !== -1) {
       this.order.splice(index, 1);
     }
+  }
+
+  clearCart() {
+    this.order = [];
   }
 
   saveOrder(): Observable<void> {
@@ -154,5 +159,49 @@ export class AppService {
   deletePlant(id: string): Observable<void> {
     const url = 'plants/delete';
     return this.http.post<void>(url, { _id: id });
+  }
+
+  deleteOrder(id: string): Observable<void> {
+    const url = 'order/delete';
+    return this.http.post<void>(url, { _id: id });
+  }
+
+  deleteUser(id: string): Observable<void> {
+    const url = 'user/delete';
+    return this.http.post<void>(url, { _id: id });
+  }
+
+  editUser(id: string, newValues: any) {
+    const url = 'user/edit';
+    return this.http.post<void>(url, { _id: id, ...newValues });
+  }
+
+  editPlant(payload: any) {
+    const url = 'plants/edit';
+    return this.http.post<void>(url, payload);
+  }
+
+  getUserOrders(id: string): Observable<Order[]> {
+    const url = `user/${id}/orders`;
+    return this.http.get<Order[]>(url);
+  }
+
+  getUsers(): Observable<User[]> {
+    const url = 'users';
+    return this.http
+      .get<User[]>(url)
+      .pipe(
+        mergeMap(userList =>
+          userList.length
+            ? forkJoin(
+                userList.map(user =>
+                  forkJoin(of(user), this.getUserOrders(user._id)).pipe(
+                    map(data => ({ ...data[0], orders: data[1] }))
+                  )
+                )
+              )
+            : of(null)
+        )
+      );
   }
 }

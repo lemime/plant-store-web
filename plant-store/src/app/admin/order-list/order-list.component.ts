@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Order } from 'src/app/models/order.model';
 
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.scss']
 })
-export class OrderListComponent implements OnInit {
+export class OrderListComponent {
+  @Input()
+  orders: Order[];
 
-  constructor() { }
+  @Output()
+  delete: EventEmitter<string> = new EventEmitter();
 
-  ngOnInit() {
+  onDelete(order: Order) {
+    this.delete.emit(order._id);
   }
-
 }

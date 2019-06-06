@@ -1,0 +1,11 @@
+@import "../../../scss/exports.scss";
+
+:host {
+  display: block;
+  @include m(4);
+}
+.user {
+  background-color: white;
+  @include p(3);
+  @include my(4);
+}

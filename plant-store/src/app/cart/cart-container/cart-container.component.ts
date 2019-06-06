@@ -22,6 +22,7 @@ export class CartContainerComponent implements OnInit {
 
   saveOrder(): void {
     this.appService.saveOrder().subscribe(() => {
+      this.appService.clearCart();
       this.ngOnInit();
     });
   }

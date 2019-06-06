@@ -1,0 +1,37 @@
+<ngx-smart-modal #plant [identifier]="'plant'" (onOpen)="open()">
+  <form class="form-container" [formGroup]="editForm">
+    <div style="display:grid; grid-template-columns: 1fr 2fr;">
+      <div class="thumbnail"><img [src]="plantImage"></div>
+      <div style="display: flex; flex-direction: column">
+        <div class="btn btn-change m-0" style="width: 100%" (click)="toggle()">
+          <span [ngStyle]="{'display':changeImage === true ? 'none' : 'inline' }">Zmien zdjecie</span>
+          <span [ngStyle]="{'display':changeImage === true ? 'inline' : 'none' }">Odrzuc zmiane</span>
+        </div>
+        <div class="form-input" [ngStyle]="{'display':changeImage === true ? 'block' : 'none' }">
+          <p class=" font-size-s">Image</p>
+          <input type="file" formControlName="image" (change)="onFileSelect($event)" />
+        </div>
+      </div>
+    </div>
+    <div class="form-input">
+      <p class="font-size-s">Name</p>
+      <input type="text" formControlName="name" />
+    </div>
+    <div class="form-input">
+      <p class="font-size-s">Category</p>
+      <ng-select class="custom" [items]="items" [clearable]="false" [searchable]="false" formControlName="category">
+      </ng-select>
+    </div>
+    <div class="form-input">
+      <p class="font-size-s">Price</p>
+      <input type="number" formControlName="price" />
+    </div>
+    <div class="form-input">
+      <p class="font-size-s">Description</p>
+      <input type="text" formControlName="description" />
+    </div>
+    <button type="submit" class="btn" (click)="change()">Change</button>
+  </form>
+
+
+</ngx-smart-modal>

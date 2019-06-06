@@ -20,4 +20,15 @@ export class FileUploadService {
       })
     );
   }
+
+  change(formData) {
+    const url = `photos/change`;
+    return this.http.post(url, formData).pipe(
+      map((item: Item) => {
+        return Object.assign({}, item, {
+          url: `plants/images/${item.id}`
+        });
+      })
+    );
+  }
 }
